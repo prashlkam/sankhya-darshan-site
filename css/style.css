@@ -1,0 +1,395 @@
+/* ============================================================
+   साङ्ख्य सत्संग — design system
+   Duality of the darshana made visual:
+   PURUSHA = deep indigo night (consciousness, the witness)
+   PRAKRITI = haldi/turmeric warmth (matter, the manifest)
+   KUMKUM  = vermilion accent (the meeting point)
+   ============================================================ */
+
+:root {
+  --purusha: #141831;
+  --purusha-soft: #1f2547;
+  --prakriti: #efe0bd;
+  --prakriti-deep: #e6d2a3;
+  --kumkum: #c03a1e;
+  --haldi: #d99a2b;
+  --ink: #2b2416;
+  --moon: #f5efdf;
+  --line: rgba(43, 36, 22, 0.18);
+  --line-dark: rgba(245, 239, 223, 0.18);
+
+  --display: "Rozha One", "Tiro Devanagari Hindi", serif;
+  --body: "Martel", "Noto Serif Devanagari", serif;
+  --utility: "Mukta", "Noto Sans Devanagari", sans-serif;
+
+  --max: 1080px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+}
+
+body {
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--ink);
+  background: var(--prakriti);
+}
+
+img, svg, video { max-width: 100%; display: block; }
+
+a { color: var(--kumkum); text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:focus-visible, button:focus-visible {
+  outline: 3px solid var(--kumkum);
+  outline-offset: 3px;
+}
+
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+/* ---------- header ---------- */
+.site-header {
+  background: var(--purusha);
+  color: var(--moon);
+  border-bottom: 4px solid var(--kumkum);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 64px;
+  flex-wrap: wrap;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+.brand {
+  font-family: var(--display);
+  font-size: 1.35rem;
+  color: var(--moon);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+.brand:hover { text-decoration: none; color: var(--haldi); }
+.brand .om { color: var(--haldi); margin-right: 8px; }
+
+nav.main-nav { display: flex; gap: 4px; flex-wrap: wrap; }
+nav.main-nav a {
+  font-family: var(--utility);
+  font-size: 0.92rem;
+  color: var(--moon);
+  padding: 8px 12px;
+  border-radius: 4px;
+  opacity: 0.85;
+}
+nav.main-nav a:hover { background: var(--purusha-soft); text-decoration: none; opacity: 1; }
+nav.main-nav a.active { background: var(--kumkum); color: #fff; opacity: 1; }
+
+/* ---------- hero: the duality split ---------- */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 72vh;
+  position: relative;
+}
+.hero-half { padding: 9vh 6vw; display: flex; flex-direction: column; justify-content: center; }
+.hero-purusha { background: var(--purusha); color: var(--moon); }
+.hero-prakriti { background: var(--prakriti); color: var(--ink); }
+
+.hero-eyebrow {
+  font-family: var(--utility);
+  font-size: 0.8rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.hero-purusha .hero-eyebrow { color: var(--haldi); }
+.hero-prakriti .hero-eyebrow { color: var(--kumkum); }
+
+.hero-word {
+  font-family: var(--display);
+  font-size: clamp(2.6rem, 6vw, 4.6rem);
+  line-height: 1.15;
+}
+.hero-def { margin-top: 18px; max-width: 34ch; font-size: 1.02rem; }
+.hero-purusha .hero-def { color: rgba(245, 239, 223, 0.82); }
+
+.hero-bridge {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--kumkum);
+  color: #fff;
+  font-family: var(--utility);
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 12px 20px;
+  border-radius: 999px;
+  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.35);
+  white-space: nowrap;
+}
+
+.hero-banner {
+  background: var(--purusha-soft);
+  color: var(--moon);
+  text-align: center;
+  padding: 26px 24px;
+  border-top: 1px solid var(--line-dark);
+}
+.hero-banner h1 {
+  font-family: var(--display);
+  font-size: clamp(1.5rem, 3.4vw, 2.3rem);
+  font-weight: 400;
+}
+.hero-banner p {
+  font-family: var(--utility);
+  margin-top: 8px;
+  color: rgba(245, 239, 223, 0.75);
+  font-size: 0.95rem;
+}
+
+/* ---------- sections ---------- */
+section.band { padding: 72px 0; }
+section.band-dark { background: var(--purusha); color: var(--moon); }
+section.band-deep { background: var(--prakriti-deep); }
+
+.section-head { margin-bottom: 40px; max-width: 720px; }
+.eyebrow {
+  font-family: var(--utility);
+  font-size: 0.78rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--kumkum);
+  display: block;
+  margin-bottom: 10px;
+}
+.band-dark .eyebrow { color: var(--haldi); }
+h2 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(1.7rem, 3.6vw, 2.5rem);
+  line-height: 1.25;
+}
+h3 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 1.35rem;
+  margin-bottom: 12px;
+}
+.lede { font-size: 1.08rem; margin-top: 14px; max-width: 65ch; }
+.band-dark .lede { color: rgba(245, 239, 223, 0.85); }
+
+p + p { margin-top: 1em; }
+
+.shloka {
+  border-left: 4px solid var(--haldi);
+  padding: 18px 24px;
+  margin: 28px 0;
+  background: rgba(217, 154, 43, 0.1);
+}
+.shloka .sa {
+  font-family: var(--display);
+  font-size: 1.25rem;
+  line-height: 1.7;
+}
+.shloka .tr {
+  font-family: var(--utility);
+  font-size: 0.95rem;
+  margin-top: 10px;
+  opacity: 0.85;
+}
+.shloka .src {
+  font-family: var(--utility);
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 8px;
+  color: var(--kumkum);
+}
+.band-dark .shloka { background: rgba(217, 154, 43, 0.12); }
+.band-dark .shloka .src { color: var(--haldi); }
+
+/* ---------- day cards ---------- */
+.day-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 22px;
+  margin-top: 40px;
+}
+.day-card {
+  background: var(--moon);
+  border: 1px solid var(--line);
+  border-top: 5px solid var(--haldi);
+  padding: 26px 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: var(--ink);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.day-card:hover {
+  text-decoration: none;
+  transform: translateY(-4px);
+  box-shadow: 0 14px 34px rgba(20, 24, 49, 0.16);
+  border-top-color: var(--kumkum);
+}
+.day-num {
+  font-family: var(--display);
+  font-size: 2.6rem;
+  color: var(--kumkum);
+  line-height: 1;
+}
+.day-card h3 { margin: 0; font-size: 1.25rem; }
+.day-card .day-sub {
+  font-family: var(--utility);
+  font-size: 0.92rem;
+  color: rgba(43, 36, 22, 0.7);
+}
+.day-card .day-go {
+  margin-top: auto;
+  font-family: var(--utility);
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--kumkum);
+}
+
+/* ---------- day page ---------- */
+.day-hero {
+  background: var(--purusha);
+  color: var(--moon);
+  padding: 64px 0 56px;
+  border-bottom: 4px solid var(--haldi);
+}
+.day-hero .day-num { font-size: 4rem; color: var(--haldi); }
+.day-hero h1 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(1.9rem, 4.5vw, 3rem);
+  margin-top: 6px;
+}
+.day-hero .day-sub {
+  font-family: var(--utility);
+  margin-top: 12px;
+  color: rgba(245, 239, 223, 0.78);
+  max-width: 62ch;
+}
+
+.day-nav-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 48px 0 8px;
+  font-family: var(--utility);
+  font-size: 0.95rem;
+}
+
+article.teaching { max-width: 760px; }
+article.teaching h2 { margin: 40px 0 16px; font-size: 1.6rem; }
+article.teaching ul, article.teaching ol { margin: 1em 0 1em 1.4em; }
+article.teaching li + li { margin-top: 0.5em; }
+
+/* ---------- archive (media) slots ---------- */
+.archive-note {
+  background: rgba(192, 58, 30, 0.08);
+  border: 1px dashed var(--kumkum);
+  padding: 16px 20px;
+  font-family: var(--utility);
+  font-size: 0.92rem;
+  margin: 26px 0;
+}
+.media-block {
+  background: var(--moon);
+  border: 1px solid var(--line);
+  padding: 22px;
+  margin: 22px 0;
+}
+.media-block h4 {
+  font-family: var(--utility);
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--kumkum);
+  margin-bottom: 12px;
+}
+.media-block audio, .media-block video { width: 100%; margin-top: 8px; }
+.media-block .caption {
+  font-family: var(--utility);
+  font-size: 0.88rem;
+  opacity: 0.75;
+  margin-top: 8px;
+}
+
+/* ---------- tattva chart ---------- */
+.tattva-wrap { margin: 44px auto 8px; max-width: 880px; }
+.tattva-wrap svg { width: 100%; height: auto; }
+
+/* ---------- tables ---------- */
+table.tattva-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--utility);
+  font-size: 0.95rem;
+  margin: 28px 0;
+  background: var(--moon);
+}
+table.tattva-table th, table.tattva-table td {
+  border: 1px solid var(--line);
+  padding: 10px 14px;
+  text-align: left;
+  vertical-align: top;
+}
+table.tattva-table th {
+  background: var(--purusha);
+  color: var(--moon);
+  font-weight: 500;
+}
+
+/* ---------- footer ---------- */
+footer.site-footer {
+  background: var(--purusha);
+  color: rgba(245, 239, 223, 0.75);
+  padding: 44px 0;
+  font-family: var(--utility);
+  font-size: 0.9rem;
+  border-top: 4px solid var(--kumkum);
+}
+footer .foot-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 32px;
+}
+footer h4 {
+  color: var(--haldi);
+  font-family: var(--display);
+  font-weight: 400;
+  margin-bottom: 10px;
+  font-size: 1.05rem;
+}
+footer a { color: var(--moon); }
+footer ul { list-style: none; }
+footer li + li { margin-top: 6px; }
+.foot-note { margin-top: 30px; padding-top: 18px; border-top: 1px solid var(--line-dark); font-size: 0.82rem; }
+
+/* ---------- reveal animation ---------- */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.in { opacity: 1; transform: none; }
+
+/* ---------- responsive ---------- */
+@media (max-width: 760px) {
+  .hero { grid-template-columns: 1fr; min-height: unset; }
+  .hero-half { padding: 56px 24px; }
+  .hero-bridge { position: static; transform: none; display: inline-block; margin: -22px auto 0; position: relative; left: 50%; transform: translateX(-50%); top: -22px; }
+  footer .foot-grid { grid-template-columns: 1fr; }
+  .site-header .wrap { justify-content: center; }
+}
